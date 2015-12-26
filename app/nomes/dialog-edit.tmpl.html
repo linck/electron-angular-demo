@@ -1,0 +1,35 @@
+<div layout = "row">
+    <md-dialog ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Alterar {{::nomeEdit.nome}} {{::nomeEdit.sobrenome}}</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+        <form name="addForm"  ng-submit="closeDialog()">
+            <md-input-container>
+                <label>Nome</label>
+                <input type="text" ng-model="nomeEdit.nome">
+            </md-input-container>
+            <md-input-container>
+                <label>Sobrenome</label>
+                <input type="text" ng-model="nomeEdit.sobrenome">
+            </md-input-container>
+            <input ng-show="false" type="submit" value="">
+        </form>
+        </md-dialog-content>
+        <md-dialog-content layout="row">
+            <md-dialog-actions>
+                <md-button ng-click="closeDialog()" class="md-primary">Alterar</md-button>
+            </md-dialog-actions>
+            <md-dialog-actions>
+                <md-button ng-click="editAndClose()" class="md-primary">Cancelar</md-button>
+            </md-dialog-actions>
+        </md-dialog-content>
+
+    </md-dialog>
+</div>

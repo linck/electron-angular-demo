@@ -18,6 +18,10 @@ angular.module('nomesApp')
         },
         delete: function(nomeObj){
             nomes.$remove(nomeObj);
+        },
+        edit: function(nomeObj){
+            nomes.$remove(nomeObj);
+            nomes.$add(nomeObj);
         }
 
     }
