@@ -4,21 +4,16 @@
 'use strict';
 
 angular.module('nomesApp')
-.controller('NomesController', ['NomesService', '$http', '$mdDialog', function(NomesService, $http, $mdDialog) {
+.controller('NomesController', ['NomesService', '$http', '$mdDialog', function(nomesService, $http, $mdDialog) {
     var self = this;
     self.name = '';
     self.pesquisar = '';
     self.showAdd = false;
     self.showSearch = false;
+    self.nomes = [];
 
     var fetchNomes = function(){
-        //NomesService.list().then(function(response){
-        //    self.nomes = response.data;
-        //    console.log(self.nomes);
-        //}, function(error){
-        //    console.log(error);
-        //});
-        self.nomes = NomesService.list();
+        self.nomes = nomesService.list();
     };
     fetchNomes();
 
@@ -37,13 +32,13 @@ angular.module('nomesApp')
 
     self.addNome = function(){
         var nome = {nome: self.name, sobrenome: self.sobrenome}
-        NomesService.add(nome);
+        nomesService.add(nome);
         self.name = '';
         self.sobrenome = '';
     };
 
     self.deleteNome = function(nome){
-        NomesService.delete(nome);
+        nomesService.delete(nome);
     };
 
     self.showAddF = function(){
@@ -61,23 +56,22 @@ angular.module('nomesApp')
             parent: parentEl,
             targetEvent: $event,
             templateUrl: './nomes/dialog-edit.tmpl.html',
-            controller: DialogController,
+            controller: ['$scope', '$mdDialog','NomesService', 'items', DialogController],
             clickOutsideToClose:false,
             locals: {
                     items: self.nomeEdit
             }
         });
     };
-
 }]);
-function DialogController($scope, $mdDialog,NomesService, items) {
+
+function DialogController($scope, $mdDialog, nomesService, items) {
     $scope.nomeEdit = items;
-    console.log( $scope.nomeEdit);
     $scope.closeDialog = function() {
         $mdDialog.hide();
     }
     $scope.editAndClose = function() {
-
+        nomesService.edit($scope.nomeEdit);
         $mdDialog.hide();
     }
 }

@@ -50,7 +50,7 @@
             <md-list ng-cloak>
                 <md-subheader ng-show="ctrl.pesquisar.length >= 1">Fitrado por '{{ctrl.pesquisar}}'</md-subheader>
                 <md-list-item ng-class="ctrl.getFamiliaClass(nome.sobrenome)"
-                              ng-repeat="nome in ctrl.nomes | filter:ctrl.pesquisar" ng-click="ctrl.showEdit($event, nome)">
+                              ng-repeat="nome in ctrl.nomes | filter:ctrl.pesquisar | orderBy:'+nome'" ng-click="ctrl.showEdit($event, nome)">
                     <p> {{nome.nome}} </p>
                     <md-tooltip md-direction="down">
                         {{nome.sobrenome}}
