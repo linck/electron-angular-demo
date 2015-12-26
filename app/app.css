@@ -1,0 +1,26 @@
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+
+.costas {
+    background-color: rgba(1, 128, 25, 0.31) !important;
+}
+.machados {
+    background-color: rgba(255, 0, 0, 0.17) !important;
+}
+.outros {
+    background-color: rgba(255, 255, 0, 0.26) !important;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+.meuform{
+    margin-bottom: -20px;
+}
