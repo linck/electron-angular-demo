@@ -1,0 +1,17 @@
+{
+  "name": "electron-angular-demo",
+  "description": "Demonstração de Angular + Electron",
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.4.0",
+    "angular-route": "~1.4.0",
+    "angular-loader": "~1.4.0",
+    "angular-mocks": "~1.4.0",
+    "angular-material ":"~1.0.3",
+    "html5-boilerplate": "~5.2.0",
+    "firebase": "~2.4.0",
+    "angularfire": "~1.1.3"
+  }
+}
