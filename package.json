@@ -1,16 +1,14 @@
 {
   "name": "electron-angular-demo",
+  "private": true,
   "version": "0.1.0",
-  "main": "electron-config.js",
+  "description": "Demonstração de Angular + Electron",
+  "license": "MIT",
   "devDependencies": {
-    "asar": "^0.8.0",
-    "electron-prebuilt": "^0.34.0",
-    "fs-jetpack": "^0.7.0",
-    "q": "^1.4.1",
-    "rcedit": "^0.3.0",
-    "express": "~4.0.0",
-    "morgan": "~1.0.0",
-    "body-parser": "~1.0.0",
-    "method-override": "~1.0.0"
+    "bower": "^1.3.1"
+  },
+  "scripts": {
+    "postinstall": "bower install",
+    "prestart": "npm install"
   }
 }
