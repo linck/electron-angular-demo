@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>My AngularJS App</title>
+    <title>AngularJs Demo</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
@@ -17,63 +17,9 @@
     <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body layout="column" ng-app="nomesApp">
-    <div flex ng-controller="NomesController as ctrl" ng-cloak>
-        <div flex>
-            <md-toolbar>
-                <div class="md-toolbar-tools">
-                    <h2>Lista de Nomes</h2>
-                </div>
-                <div layout="row">
-                    <md-button class="md-fab md-mini" aria-label="Eat cake" ng-click="ctrl.showAddF()">
-                        <md-icon class="material-icons"> add </md-icon>
-                    </md-button>
-                    <md-button class="md-fab md-mini" aria-label="Eat cake" ng-click="ctrl.showSearchF()">
-                        <md-icon class="material-icons"> search </md-icon>
-                    </md-button>
-                </div>
-            </md-toolbar>
-        </div>
-        <div flex>
-            <form class="meuform" name="filtroForm" ng-show="ctrl.showSearch">
-                <md-input-container >
-                    <label>Pesquisar</label>
-                    <input name="filtroInput" ng-model="ctrl.pesquisar"></input>
-                </md-input-container>
-            </form>
 
-            <form class="meuform" name="addForm" ng-show="ctrl.showAdd" ng-submit="ctrl.addNome()">
-                <md-input-container>
-                    <label>Adicione um nome</label>
-                    <input type="text" ng-model="ctrl.name">
-                </md-input-container>
-                <md-input-container>
-                    <label>Adicione um Sobrenome</label>
-                    <input type="text" ng-model="ctrl.sobrenome">
-                </md-input-container>
-                <md-input-container>
-                    <md-button class="md-fab md-mini" aria-label="Eat cake" ng-click="ctrl.addNome()">
-                        <md-icon class="material-icons"> send </md-icon>
-                    </md-button>
-                </md-input-container>
-                <input ng-show="false" type="submit" value="">
-            </form>
-        </div>
-        <div flex>
-            <md-list ng-cloak>
-                <md-subheader ng-show="ctrl.pesquisar.length >= 1">Fitrado por '{{ctrl.pesquisar}}'</md-subheader>
-                <md-list-item ng-class="ctrl.getFamiliaClass(nome.sobrenome)"
-                              ng-repeat="nome in ctrl.nomes | filter:ctrl.pesquisar | orderBy:'+nome'" ng-click="ctrl.showEdit($event, nome)">
-                    <p> {{nome.nome}} </p>
-                    <md-tooltip md-direction="down">
-                        {{nome.sobrenome}}
-                    </md-tooltip>
-                    <md-button class="md-fab md-mini"  ng-click="ctrl.deleteNome(nome)">
-                        <md-icon class="material-icons"> delete </md-icon>
-                    </md-button>
-                </md-list-item>
-            </md-list>
-        </div>
-    </div>
+    <crud-nomes></crud-nomes>
+
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-animate/angular-animate.min.js"></script>
@@ -83,8 +29,9 @@
     <script src="bower_components/firebase/firebase.js"></script>
     <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
     <script src="app.js"></script>
-    <script src="nomes/nomes-controler.js"></script>
-    <script src="nomes/nomes-service.js"></script>
+    <script src="components/crud-nomes/nomes-controler.js"></script>
+    <script src="components/crud-nomes/nomes-service.js"></script>
+    <script src="components/crud-nomes/crud-nomes-directive.js"></script>
 
 </body>
 

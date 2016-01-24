@@ -1,0 +1,57 @@
+<div flex ng-controller="NomesController as ctrl" ng-cloak>
+    <div flex>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Lista de Nomes</h2>
+            </div>
+            <div layout="row">
+                <md-button class="md-fab md-mini" aria-label="Eat cake" ng-click="ctrl.showAddField()">
+                    <md-icon class="material-icons"> add </md-icon>
+                </md-button>
+                <md-button class="md-fab md-mini" aria-label="Eat cake" ng-click="ctrl.showSearchField()">
+                    <md-icon class="material-icons"> search </md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+    </div>
+    <div flex>
+        <form class="meuform" name="filtroForm" ng-show="ctrl.showSearch">
+            <md-input-container >
+                <label>Pesquisar</label>
+                <input name="filtroInput" ng-model="ctrl.pesquisar"/>
+            </md-input-container>
+        </form>
+
+        <form class="meuform" name="addForm" ng-show="ctrl.showAdd" ng-submit="ctrl.addNome()">
+            <md-input-container>
+                <label>Adicione um nome</label>
+                <input type="text" ng-model="ctrl.name">
+            </md-input-container>
+            <md-input-container>
+                <label>Adicione um Sobrenome</label>
+                <input type="text" ng-model="ctrl.sobrenome">
+            </md-input-container>
+            <md-input-container>
+                <md-button class="md-fab md-mini" aria-label="Eat cake" ng-click="ctrl.addNome()">
+                    <md-icon class="material-icons"> send </md-icon>
+                </md-button>
+            </md-input-container>
+            <input ng-show="false" type="submit" value="">
+        </form>
+    </div>
+    <div flex>
+        <md-list ng-cloak>
+            <md-subheader ng-show="ctrl.pesquisar.length >= 1">Fitrado por '{{ctrl.pesquisar}}'</md-subheader>
+            <md-list-item ng-class="ctrl.getFamiliaClass(nome.sobrenome)"
+                          ng-repeat="nome in ctrl.nomes | filter:ctrl.pesquisar | orderBy:'+nome'" ng-click="ctrl.showEdit($event, nome)">
+                <p> {{nome.nome}} </p>
+                <md-tooltip md-direction="down">
+                    {{nome.sobrenome}}
+                </md-tooltip>
+                <md-button class="md-fab md-mini"  ng-click="ctrl.deleteNome(nome)">
+                    <md-icon class="material-icons"> delete </md-icon>
+                </md-button>
+            </md-list-item>
+        </md-list>
+    </div>
+</div>

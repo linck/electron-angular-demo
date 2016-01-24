@@ -41,11 +41,11 @@ angular.module('nomesApp')
         nomesService.delete(nome);
     };
 
-    self.showAddF = function(){
+    self.showAddField = function(){
         self.showAdd = !self.showAdd;
     };
 
-    self.showSearchF = function(){
+    self.showSearchField = function(){
         self.showSearch = !self.showSearch;
     };
 
@@ -55,7 +55,7 @@ angular.module('nomesApp')
         $mdDialog.show({
             parent: parentEl,
             targetEvent: $event,
-            templateUrl: './nomes/dialog-edit.tmpl.html',
+            templateUrl: 'components/crud-nomes/dialog-edit.tmpl.html',
             controller: ['$scope', '$mdDialog','NomesService', 'items', DialogController],
             clickOutsideToClose:false,
             locals: {
