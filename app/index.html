@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="nomesApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="nomesApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="nomesApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="nomesApp" class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,23 +12,18 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
-<body layout="column" ng-app="nomesApp">
+<body layout="column">
 
     <crud-nomes></crud-nomes>
+    <script src="../node_modules/systemjs/dist/system-polyfills.js"></script>
+    <script src="../node_modules/systemjs/dist/system.src.js"></script>
+    <script src="systemjs.config.js"></script>
 
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
-    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
-    <script src="bower_components/angular-messages/angular-messages.min.js"></script>
-    <script src="bower_components/angular-material/angular-material.min.js"></script>
-    <script src="bower_components/firebase/firebase.js"></script>
-    <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
-    <script src="app.js"></script>
-    <script src="components/crud-nomes/nomes-controler.js"></script>
-    <script src="components/crud-nomes/nomes-service.js"></script>
-    <script src="components/crud-nomes/crud-nomes-directive.js"></script>
-
+    <!--<script src="app.js"></script>-->
+    <!--<script src="components/crud-nomes/nomes-controler.js"></script>-->
+    <!--<script src="components/crud-nomes/nomes-service.js"></script>-->
+    <!--<script src="components/crud-nomes/crud-nomes-directive.js"></script>-->
+    <script src="../built/Main.js"></script>
 </body>
 
 </html>
