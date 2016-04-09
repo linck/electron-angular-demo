@@ -4,7 +4,7 @@ import {CrudNomesDirective} from "./components/crud-nomes/CrudNomesDirective";
 /**
  * Created by beto_ on 01/04/2016.
  */
-///<reference path="../node_modules/angular2/typings/browser.d.ts"/>
+///<reference path="../typings/browser.d.ts"/>
 angular.module('nomesApp', ['ngMaterial', 'firebase', 'ngRoute'])
     .config(['$routeProvider', function($routeProvider){
         $routeProvider.when('/', {
